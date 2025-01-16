@@ -6,18 +6,14 @@ import os
 outpath = os.path.expanduser('~') + "/ytdlp"
 cookie = None
 
-mp4_qualitys = [dropdown.Option(key="Auto"), dropdown.Option(key="144p"), dropdown.Option(key="240p"), dropdown.Option(key="360p"), dropdown.Option(key="480p"), dropdown.Option(key="720p"), dropdown.Option(key="1080p")]
-mp3_qualitys = [dropdown.Option(key="Auto"), dropdown.Option(key="128kbps"), dropdown.Option(key="192kbps"), dropdown.Option(key="256kbps"), dropdown.Option(key="320kbps")]
+mp4_qualitys = [dropdown.Option(key="Auto")]
+mp3_qualitys = [dropdown.Option(key="Auto")]
 
 def main(page: Page):
     page.title = "yt-dlpGUI"
     page.window.width = 500
     page.padding = 16
-    page.fonts = {
-        "KosugiMaru": "fonts/KosugiMaru-Regular.ttf"
-    }
-    page.theme = Theme(font_family="KosugiMaru")
-
+    
     def change_ext(e):
         if ext_sel.value == "mp4":
             quality_sel.options = mp4_qualitys
